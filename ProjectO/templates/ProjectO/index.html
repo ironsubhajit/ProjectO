@@ -1,4 +1,17 @@
-{% extends "ProjectO/base.html" %} {% block content %}
+{% extends "ProjectO/base.html" %} {% load static %}
+
+<!-- css -->
+{% block css_link %}
+  <link rel="stylesheet" href="{% static 'ProjectO/css/master.css' %}" />
+{% endblock %}
+
+<!-- javascript -->
+{% block js %}
+  <script src="{% static 'ProjectO/js/master.js' %}"></script>
+{% endblock %}
+
+<!-- body content -->
+{% block content %}
 <div>
   <h1>Hello, Welcome to ProjectO!</h1>
 </div>
