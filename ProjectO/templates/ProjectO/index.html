@@ -8,6 +8,46 @@
 <!-- body content -->
 {% block content %}
 <div>
+  <!--Navbar for new/logged-out user-->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container container-fluid">
+      <a class="navbar-brand active" href="{% url 'home' %}">
+        <img src="{% static 'ProjectO/images/logo.jpg' %}" width="30" height="30" alt="Brand logo" loading="lazy" class="rounded mt-n1">
+        SIT ProjectO
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav mx-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Creative Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Softwear Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Electronics Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trends</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-warning">Log In</button></a>
+          </li>
+          <li class="nav-item">
+            <!-- need to add sign up view and url -->
+            <a class="nav-link" href="#"><button type="button" class="btn btn-outline-warning">Register</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar ends here -->
   <!-- if a user not registered or logged-in -->
   <div class="container container-fluid alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Hello User!</strong> Seems like you have not <strong>register</strong> or <strong>log in</strong> yet it may block some features for you!!
