@@ -8,6 +8,13 @@
 <!-- body content -->
 {% block content %}
 <div>
+  <!-- if a user not registered or logged-in -->
+  <div class="container container-fluid alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Hello User!</strong> Seems like you have not <strong>register</strong> or <strong>log in</strong> yet it may block some features for you!!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <!--slide show of body part start here-->
   <div id="carouselExampleCaptions" class="container container-fluid carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
