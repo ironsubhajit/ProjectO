@@ -1,0 +1,80 @@
+.mx-n7 {
+  margin-left: -1.8rem !important;
+}
+
+.my-font h1 {
+  font-family: algerian;
+  padding-top: 0.1cm;
+}
+
+.add1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add2 {
+  flex: 1 1 300px;
+}
+
+body {
+  margin-top: 72px;
+}
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 62px;
+  }
+}
+
+*a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.container a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.container p {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.container h1,
+h4,
+h5 {
+  color: black;
+}
+
+/* .container a:hover {
+  color: black;
+} */
+
+.footer-copyright p {
+  color: black;
+}
+
+.fa-android {
+  color: greenyellow;
+}
+
+.fa-facebook:hover {
+  color: #0e76a8;
+}
+
+.fa-twitter:hover {
+  color: #1DA1F2;
+}
+.fa-linkedin:hover {
+  color: #0e76a8;
+}
+.fa-instagram:hover {
+  color: #8a3ab9;
+}
+
+.fa-youtube-play:hover {
+  color: #7c0c0c;
+}
