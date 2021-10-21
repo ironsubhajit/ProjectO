@@ -36,3 +36,17 @@ class UserCreateForm(UserCreationForm):
         self.fields['password2'].widget.attrs['id'] = 'passwordConfirmation'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
 
+
+# login form
+class UserLoginForm(AuthenticationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(UserLoginForm, self).__init__(*args, **kwargs)
+
+        self.fields['username'].widget.attrs['class'] = 'form-control bg-white border-left-0 border-md'
+        self.fields['username'].widget.attrs['id'] = 'username'
+        self.fields['username'].widget.attrs['placeholder'] = 'User Name'
+
+        self.fields['password'].widget.attrs['class'] = 'form-control bg-white border-left-0 border-md'
+        self.fields['password'].widget.attrs['id'] = 'password'
+        self.fields['password'].widget.attrs['placeholder'] = 'Password'
