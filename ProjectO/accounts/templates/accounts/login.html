@@ -35,17 +35,25 @@
 				<img src="{% static 'accounts/images/robot-hand.jpg' %}" alt="Connect Icon">
 			</div>
 
-			<form action="" method="POST">
+			<form action="{% url 'accounts:login' %}" method="POST" id="login_form" name="login_form">
+				{% csrf_token %}
 				<h3>Welcome Back</h3><br>
 				<h3>LOG IN</h3>
 
+				{% if form.errors %}
+					<div class="form-wrapper">
+						<span class="form-not-valid ml-2">
+							<small style="color: red;">Username or Password is incorrect, Please try again.</small>
+						</span>
+					</div>
+            	{% endif %}
 				<div class="form-wrapper">
-					<input type="text" placeholder="Username" class="form-control">
+					{{ form.username }}
 					<i class="material-icons md-18">person</i>
 				</div>
 
 				<div class="form-wrapper">
-					<input type="password" placeholder="Password" class="form-control">
+					{{ form.password }}
 					<i class="material-icons md-18">vpn_key</i>
 				</div>
 
@@ -59,11 +67,10 @@
 					<a href="{% url 'accounts:signup' %}">Don't have an account?</a>
 				</div>
 
-				<a href="#">
-					<button>Login
-						<i class="material-icons md-18">arrow_right_alt</i>
-					</button>
-				</a>
+				<button for="login_form" type="submit">
+					Login
+					<i class="material-icons md-18">arrow_right_alt</i>
+				</button>
 
 				<h4>Or</h4>
 				<hr>
