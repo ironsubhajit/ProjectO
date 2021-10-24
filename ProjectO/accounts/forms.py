@@ -47,6 +47,6 @@ class UserLoginForm(AuthenticationForm):
         self.fields['username'].widget.attrs['id'] = 'username'
         self.fields['username'].widget.attrs['placeholder'] = 'User Name'
 
-        self.fields['password'].widget.attrs['class'] = 'form-control bg-white border-left-0 border-md'
+        self.fields['password'].widget.attrs['class'] = 'form-control'
         self.fields['password'].widget.attrs['id'] = 'password'
         self.fields['password'].widget.attrs['placeholder'] = 'Password'
