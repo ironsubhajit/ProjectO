@@ -36,6 +36,7 @@
 				<img src="{% static 'accounts/images/robot-hand.jpg' %}" alt="Connect Icon">
 			</div>
 			<form action="" method="POST">
+				{% csrf_token %}
 				<h3>Registration Form</h3>
 
 				<div class="form-wrapper">
