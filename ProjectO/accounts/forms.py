@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.core.exceptions import ValidationError
 
 
 # new user create form
@@ -9,6 +10,8 @@ class UserCreateForm(UserCreationForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
     email = forms.EmailField()
+    # collage_name = forms.ChoiceField()
+
 
     class Meta:
         fields = ("username", "first_name", "last_name", "email", "password1", "password2")
@@ -40,6 +43,43 @@ class UserCreateForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control bg-white border-left-0 border-md'
         self.fields['password2'].widget.attrs['id'] = 'passwordConfirmation'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
+
+    def username_clean(self):
+        username = self.cleaned_data.get('username').lower()
+        newUser = get_user_model().objects.filter(username=username)
+        if newUser.count():
+            raise ValidationError("User Already Exist!")
+        return username
+
+    def email_clean(self):
+        email = self.cleaned_data.get('email').lower()
+        newUserEmail = get_user_model().objects.filter(email=email)
+        if newUserEmail.count():
+            raise ValidationError("Email Already Exist!")
+        return email
+
+    def collage_name_clean(self):
+        pass
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise ValidationError(
+                "The two password fields didn’t match.",
+                code='password_mismatch',
+            )
+        return password2
+
+    def save(self, commit=True):
+        user = User.objects.create_user(
+            self.cleaned_data['username'],
+            self.cleaned_data['email'],
+            self.cleaned_data["password1"],
+            (self.cleaned_data['first_name'],
+            self.cleaned_data['last_name'])
+        )
+        return user
 
 
 # login form
