@@ -1,3 +1,6 @@
+body{
+  background-color: #212529;
+}
 .mx-n7 {
   margin-left: -1.8rem !important;
 }
@@ -53,8 +56,12 @@ h5 {
   color: black;
 } */
 
+.footer{
+  /* background-color: #495057; */
+}
+
 .footer-copyright p {
-  color: black;
+  color: rgb(183, 181, 181);
 }
 
 .fa-android {
