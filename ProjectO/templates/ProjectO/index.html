@@ -13,7 +13,7 @@
     <div class="container container-fluid">
       <a class="navbar-brand active" href="{% url 'home' %}">
         <img src="{% static 'ProjectO/icons/Brand.png' %}" width="30" height="30" alt="Brand logo" loading="lazy" class="rounded mt-n1 mr-1">
-        ProjectHub
+        <span class="brand-name">ProjectHub</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,9 +30,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Electronics Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Trends</a>
           </li>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
@@ -116,12 +113,12 @@
     </a>
   </div>
   <!--slide show ends here-->
-  <h1 class="container container-fluid text-center text-info my-4 my-font">
-    RECENT TRENDING PROFILES & PROJECTS
+  <h1 id="recent-project-grid-header" class="container container-fluid text-center text-info my-4 site-font">
+    RECENT PROJECTS 
   </h1>
 
   <!--trending profiles section start here-->
-  <div class="container container-fluid my-5">
+  <div class="container container-fluid text-center my-5">
     <div class="row add1">
       <div class="col-lg-4 add2">
         <img
@@ -171,7 +168,7 @@
         </img>
         <h2 class="text">Innovative Ideas</h2>
         <h5>User Name</h5>
-        <p>Project name and some primary details should be here</p>
+        <p>Project name with details should be here</p>
         <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
       </div><!-- /.col-lg-4 -->
     </div>
@@ -193,17 +190,17 @@
       <div class="row">
         <div class="col-md-4 col-lg-4 pt-0 footer-about" >
         <!-- <h1>projecto</h1> -->
-         <h1>ProjectHub</h1>
+         <h1 class="brand-name">ProjectHub</h1>
           <p>
             The value of an idea lies in the using of it.
           </p>
-          <p>
-            <i class="fa fa-android fa-2x"></i><a href="#">&nbsp&nbspGet Android App Here</a>
-          </p>
+          <!-- <p>
+            <i class="fa fa-android fa-2x"></i><a href="#">Get Android App Here</a>
+          </p> -->
         </div>
         <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact">
-          <h4>Contact</h4>
-          <p><i class="fa fa-envelope"></i> Email: <a href="mailto:mailshouldbehere">mail here</a></p>
+          <!-- <h4>Contact</h4> -->
+
           <h4>About</h4>
           <p><i class="fa fa-info fa-lg"></i><a href="#">&nbsp&nbspTeam ProjectHub</a></p>
         </div>
@@ -225,10 +222,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9 footer-copyright">
-          <p>@ 2020-2021 ,Website created by team ProjectO with  &#9829.</p>
-        </div>
-        <div class="col-md-3 footer-go-top">
-          <a href="#"><i class="fa fa-angle-double-up">&nbsp&nbspGo Top</i></a>
+          <p>&#169; 2020-2021 rights reserved by ProjectHub</p>
         </div>
       </div>
     </div>

@@ -1,12 +1,19 @@
+/* 
+Google font : Roboto
+use: font-family: 'Roboto', sans-serif;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body{
   background-color: #212529;
+  font-family: 'Roboto', sans-serif;
 }
 .mx-n7 {
   margin-left: -1.8rem !important;
 }
 
-.my-font h1 {
-  font-family: algerian;
+.site-font h1 {
+  /* font-family: algerian; */
   padding-top: 0.1cm;
 }
 
@@ -28,6 +35,11 @@ body {
   }
 }
 
+.brand-name{
+  color: #C1F6DF;
+  letter-spacing: 2.7px;
+}
+
 *a {
   text-decoration: none !important;
 }
@@ -46,10 +58,10 @@ ul {
   font-style: italic;
 }
 
-.container h1,
+.container h2, p,
 h4,
 h5 {
-  color: black;
+  color: rgb(198, 191, 191);
 }
 
 /* .container a:hover {
@@ -84,4 +96,8 @@ h5 {
 
 .fa-youtube-play:hover {
   color: #7c0c0c;
+}
+
+#recent-project-grid-header{
+  color: #0A999C;
 }
