@@ -67,7 +67,7 @@
   <!-- navbar ends here -->
   {% if not user.is_authenticated %}
   <!-- if a user not registered or logged-in -->
-  <div class="container container-fluid alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Hello User!</strong> Seems like you have not <strong>register</strong> or <strong>log in</strong> yet it may
     block some features for you!!
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -76,7 +76,7 @@
   </div>
   {% endif %}
   <!--slide show of body part start here-->
-  <div id="carouselExampleCaptions" class="container container-fluid carousel slide carousel-fade" data-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -115,52 +115,61 @@
     </a>
   </div>
   <!--slide show ends here-->
-  <h1 id="recent-project-grid-header" class="container container-fluid text-center text-info my-4 site-font">
-    RECENT PROJECTS
-  </h1>
-
-  <!--trending profiles section start here-->
-  <div class="container container-fluid text-center my-5">
-    <div class="row add1">
-      <div class="col-lg-4 add2">
-        <img src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}" class="bd-placeholder-img" width="240"
-          height="200" style="border-radius: 15px;
-                   border-color: black;">
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
-        </img>
-        <h2 class="text">IT Projects</h2>
-        <h5>User Name</h5>
-        <p>Project name and details should be here</p>
-        <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 add2">
-        <img src="{% static 'ProjectO/images/TrendProjectPic2.jpg' %}" class="bd-placeholder-img" width="240"
-          height="200" style="border-radius: 15px;
-                   border-color: black;">
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
-        </img>
-        <h2 class="text">Team Projects</h2>
-        <h5>User Name</h5>
-        <p>Project name with details should be here</p>
-        <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 add2">
-        <img src="{% static 'ProjectO/images/TrendProjectPic4.jpg' %}" class="bd-placeholder-img" width="240"
-          height="200" style="border-radius: 15px;
-                   border-color: black;">
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
-        </img>
-        <h2 class="text">Innovative Ideas</h2>
-        <h5>User Name</h5>
-        <p>Project name with details should be here</p>
-        <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
-      </div><!-- /.col-lg-4 -->
+  <section class="container container-fluid projecthub-intro">
+    <div class="introduction">
+      <h6 class="my-0">Sharpening your technical skill by dive into ProjectHub.</h6>
     </div>
-  </div>
-  <!--trending section end here-->
+  </section>
+  <section class="container container-fluid top-projects">
+    <div class="recent-project-grid-header">
+      <p class="container container-fluid text-center text-info header">
+        RECENT PROJECTS
+      </p>
+    </div>
+    <!--trending profiles section start here-->
+    <div class="container container-fluid text-center my-5">
+      <div class="row add1">
+        <div class="col-lg-4 add2">
+          <img src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}" class="bd-placeholder-img" width="240"
+            height="200" style="border-radius: 15px;
+                     border-color: black;">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+          </img>
+          <h2 class="text">IT Projects</h2>
+          <h5>User Name</h5>
+          <p>Project name and details should be here</p>
+          <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 add2">
+          <img src="{% static 'ProjectO/images/TrendProjectPic2.jpg' %}" class="bd-placeholder-img" width="240"
+            height="200" style="border-radius: 15px;
+                     border-color: black;">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+          </img>
+          <h2 class="text">Team Projects</h2>
+          <h5>User Name</h5>
+          <p>Project name with details should be here</p>
+          <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 add2">
+          <img src="{% static 'ProjectO/images/TrendProjectPic4.jpg' %}" class="bd-placeholder-img" width="240"
+            height="200" style="border-radius: 15px;
+                     border-color: black;">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+          </img>
+          <h2 class="text">Innovative Ideas</h2>
+          <h5>User Name</h5>
+          <p>Project name with details should be here</p>
+          <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div>
+    </div>
+    <!--trending section end here-->
+  </section>
+
 </div>
 {% endblock %}
 
