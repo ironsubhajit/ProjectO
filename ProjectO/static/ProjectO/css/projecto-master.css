@@ -89,13 +89,153 @@ h5 {
   border-radius: 7.5px;
   color: #0A999C;
   letter-spacing: 5.5px;
-  border-bottom: 0.07rem solid rgba(255, 255, 255, 0.684);
+  /* border: 0.07rem solid rgba(255, 255, 255, 0.684); */
 }
 
 .header {
   font-size: 1.1rem;
   margin: 0px;
 }
+
+/*
+-------------------------------------------------------------
+down section (recent project items)                                |
+-------------------------------------------------------------
+*/
+.down-view {
+  position: relative;
+  top: 80vh;
+}
+
+.project-list div#portfolio-grid {
+  display: flex;
+  justify-content: center;
+}
+
+/* Project Card Styling */
+.top-project {
+  color: rgb(60, 74, 87);
+  background-color:#BDBDBD;
+  text-align: center;
+  border: none;
+  font-family: 'Roboto mono', serif;
+}
+
+/* Project Section Header */
+.project-head{
+  padding-top: 10px;
+  text-transform: uppercase;
+  color: rgba(50, 25, 25, 0.877);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* project-items */
+.item {
+  border: none;
+  margin-bottom: 30px;
+}
+
+.item .item-wrap {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.7rem;
+}
+
+.item .item-wrap:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s all ease-in-out;
+}
+
+.item .item-wrap img {
+  transition: .3s transform ease;
+  transform: scale(1);
+}
+
+.img-fluid {
+  width:415px;
+  height:250px;
+}
+
+.item .item-wrap > .work-info {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  transform: translateY(-50%);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 20px;
+  transition: .3s all ease;
+}
+
+.item .item-wrap > .work-info h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.item .item-wrap > .work-info span {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+.item .item-wrap:hover {
+  text-decoration: none;
+}
+
+.item .item-wrap:hover img {
+  transform: scale(1.05);
+}
+
+.item .item-wrap:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.item .item-wrap:hover .work-info {
+  margin-top: 0px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.work-info > h3, .work-info > span{
+  overflow: hidden;
+}
+
+/* All Projects Link */
+#allProjectsLink {
+  margin-top: 5px;
+  padding-bottom: 20px;
+}
+#allProjectsLink .btn{
+  justify-content: center;
+  color: #222629;
+  border-color: #222629;
+  margin: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: all 0.2s ease-in;
+}
+#allProjectsLink .btn:hover {
+  color: #f2f2f2;
+  background-color: #222629;
+}
+
 
 .footer-nav {
   padding: 0px;

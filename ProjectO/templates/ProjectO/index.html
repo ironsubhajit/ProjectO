@@ -117,7 +117,7 @@
   <!--slide show ends here-->
   <section class="container container-fluid projecthub-intro">
     <div class="introduction">
-      <h6 class="my-0">Sharpening your technical skill by dive into ProjectHub.</h6>
+      <p class="my-0">Sharpening your technical skill by dive into ProjectHub.</p>
     </div>
   </section>
   <section class="container container-fluid top-projects">
@@ -127,44 +127,62 @@
       </p>
     </div>
     <!--trending profiles section start here-->
-    <div class="container container-fluid text-center my-5">
-      <div class="row add1">
-        <div class="col-lg-4 add2">
-          <img src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}" class="bd-placeholder-img" width="240"
-            height="200" style="border-radius: 15px;
-                     border-color: black;">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
-          </img>
-          <h2 class="text">IT Projects</h2>
-          <h5>User Name</h5>
-          <p>Project name and details should be here</p>
-          <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 add2">
-          <img src="{% static 'ProjectO/images/TrendProjectPic2.jpg' %}" class="bd-placeholder-img" width="240"
-            height="200" style="border-radius: 15px;
-                     border-color: black;">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
-          </img>
-          <h2 class="text">Team Projects</h2>
-          <h5>User Name</h5>
-          <p>Project name with details should be here</p>
-          <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 add2">
-          <img src="{% static 'ProjectO/images/TrendProjectPic4.jpg' %}" class="bd-placeholder-img" width="240"
-            height="200" style="border-radius: 15px;
-                     border-color: black;">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em"></text>
-          </img>
-          <h2 class="text">Innovative Ideas</h2>
-          <h5>User Name</h5>
-          <p>Project name with details should be here</p>
-          <p><a class="btn btn-success" href="#" role="button">View project »</a></p>
-        </div><!-- /.col-lg-4 -->
+    <div class="mt-4 container project-list">
+      <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
+          <div class="item web-scraping col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://github.com/ironsubhajit/WebScraping/tree/master/Scraping-books" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                  <h3>Software Project</h3>
+                  <span>Web Scraping</span>
+              </div>
+              <img class="img-fluid" src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}">
+            </a>
+          </div>
+          <div class="item web-scraping col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://github.com/ironsubhajit/WebScraping/tree/master/ScrapingQuotes" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>Software Project</h3>
+                <span>Web Scraping</span>
+              </div>
+              <img class="img-fluid" style="width:415px; height:250px" src="{% static 'ProjectO/images/pic3.jpg' %}">
+            </a>
+          </div>
+          <div class="item python col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://github.com/ironsubhajit/Browser_Automation_selenium" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>Creative Project</h3>
+                <span>Python</span>
+              </div>
+              <img class="img-fluid" style="width:415px; height:250px" src="{% static 'ProjectO/images/TrendProjectPic4.jpg' %}">
+            </a>
+          </div>
+          <div class="item Web col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://t-do.herokuapp.com/" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>Electronics Project</h3>
+                <span>Web</span>
+              </div>
+              <img class="img-fluid" style="width:415px; height:250px" src="{% static 'ProjectO/images/TrendProjectPic7.jpg' %}">
+            </a>
+          </div>
+          <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://clistmark01.herokuapp.com/" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>Software Project</h3>
+                <span>Web</span>
+              </div>
+              <img class="img-fluid" style="width:415px; height:250px" src="{% static 'ProjectO/images/TrendProjectPic2.jpg' %}">
+            </a>
+          </div>
+          <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://ur9.herokuapp.com/" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>Electronics Project</h3>
+                <span>IOT</span>
+              </div>
+              <img class="img-fluid" style="width:415px; height:250px" src="{% static 'ProjectO/images/TrendProjectPic8.jpg' %}">
+            </a>
+          </div>
       </div>
     </div>
     <!--trending section end here-->
