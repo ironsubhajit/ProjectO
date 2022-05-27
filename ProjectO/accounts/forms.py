@@ -10,11 +10,10 @@ class UserCreateForm(UserCreationForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
     email = forms.EmailField()
-    # collage_name = forms.ChoiceField()
-
+    collage_name = forms.CharField()
 
     class Meta:
-        fields = ("username", "first_name", "last_name", "email", "password1", "password2")
+        fields = ("username", "first_name", "last_name", "email", "collage_name", "password1", "password2")
         model = get_user_model()
 
     def __init__(self, *args, **kwargs):
@@ -46,27 +45,28 @@ class UserCreateForm(UserCreationForm):
 
     def username_clean(self):
         username = self.cleaned_data.get('username').lower()
-        newUser = get_user_model().objects.filter(username=username)
-        if newUser.count():
+        new_user = get_user_model().objects.filter(username=username)
+        if new_user.count():
             raise ValidationError("User Already Exist!")
         return username
 
     def email_clean(self):
         email = self.cleaned_data.get('email').lower()
-        newUserEmail = get_user_model().objects.filter(email=email)
-        if newUserEmail.count():
+        new_user_email = get_user_model().objects.filter(email=email)
+        if new_user_email.count():
             raise ValidationError("Email Already Exist!")
         return email
 
     def collage_name_clean(self):
-        pass
+        collage_name = self.cleaned_data.get("collage_name").lower().strip()
+        return collage_name
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             raise ValidationError(
-                "The two password fields didn’t match.",
+                "The two password fields didn't match.",
                 code='password_mismatch',
             )
         return password2
@@ -77,7 +77,8 @@ class UserCreateForm(UserCreationForm):
             self.cleaned_data['email'],
             self.cleaned_data["password1"],
             (self.cleaned_data['first_name'],
-            self.cleaned_data['last_name'])
+             self.cleaned_data['last_name'],
+             self.cleaned_data['collage_name'])
         )
         return user
 
