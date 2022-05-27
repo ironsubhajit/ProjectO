@@ -58,6 +58,17 @@ h5 {
   color: rgb(198, 191, 191);
 }
 
+.auth-btn {
+  border-color: #0A999C;
+  color: #0A999C;
+}
+
+.auth-btn:hover {
+  background-color: #0A999C;
+  color: #ffffff;
+  border-color: transparent;
+}
+
 .brand-moto {
   font-style: normal;
   font-weight: 100;
@@ -213,27 +224,6 @@ down section (recent project items)                                |
 
 .work-info > h3, .work-info > span{
   overflow: hidden;
-}
-
-/* All Projects Link */
-#allProjectsLink {
-  margin-top: 5px;
-  padding-bottom: 20px;
-}
-#allProjectsLink .btn{
-  justify-content: center;
-  color: #222629;
-  border-color: #222629;
-  margin: 5px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-size: 1.2em;
-  transition: all 0.2s ease-in;
-}
-#allProjectsLink .btn:hover {
-  color: #f2f2f2;
-  background-color: #222629;
 }
 
 
