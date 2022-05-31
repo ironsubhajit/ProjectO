@@ -1,0 +1,29 @@
+{% extends 'accounts/_accounts_base.html' %}
+{% load static %}
+
+{%block tittle%}
+<title>{{ user.username }} | Profile</title>
+{%endblock%}
+
+{%block content%}
+<!-- image header -->
+<section>
+    <img src="{% static 'ProjectO/images/slide3.jpeg' %}" style="height:270px; width: 100%;" />
+    <img src="{{ user.profile.profile_image.url }}"
+        style="height:200px; width:250px; border-radius: 45%; margin-top: -150px; margin-left: 6%;" alt="profile pic" />
+</section>
+<section style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+    <!-- user informations -->
+    <div class="card text-white mb-3" style="width:85%; background-color:#4B5D67;border-radius: 10px; ">
+        <div class="card-header">@{{ user.username }}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+            <p class="card-text">{{ user.profile.profile_description }}</p>
+            <p style="margin-top:-10px;">College - {{ user.profile.collage_name }}</p>
+            <p style="margin-top:-10px;">Email - {{ user.email }}</p>
+        </div>
+        <button style="width:150px; margin-top: -25px;margin-left: 20px; margin-bottom: 20px;" type="button"
+            class="btn btn-outline-info">Edit Profile</button>
+    </div>
+</section>
+{%endblock%}
