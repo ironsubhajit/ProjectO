@@ -10,10 +10,9 @@ class UserCreateForm(UserCreationForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
     email = forms.EmailField()
-    collage_name = forms.CharField()
 
     class Meta:
-        fields = ("username", "first_name", "last_name", "email", "collage_name", "password1", "password2")
+        fields = ("username", "first_name", "last_name", "email", "password1", "password2")
         model = get_user_model()
 
     def __init__(self, *args, **kwargs):
@@ -57,9 +56,6 @@ class UserCreateForm(UserCreationForm):
             raise ValidationError("Email Already Exist!")
         return email
 
-    def collage_name_clean(self):
-        collage_name = self.cleaned_data.get("collage_name").lower().strip()
-        return collage_name
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -74,11 +70,10 @@ class UserCreateForm(UserCreationForm):
     def save(self, commit=True):
         user = User.objects.create_user(
             self.cleaned_data['username'],
-            self.cleaned_data['email'],
-            self.cleaned_data["password1"],
-            (self.cleaned_data['first_name'],
-             self.cleaned_data['last_name'],
-             self.cleaned_data['collage_name'])
+            first_name=self.cleaned_data['first_name'],
+            last_name=self.cleaned_data['last_name'],
+            email=self.cleaned_data['email'],
+            password=self.cleaned_data['password1']
         )
         return user
 
