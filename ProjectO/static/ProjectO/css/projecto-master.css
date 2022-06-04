@@ -69,6 +69,42 @@ h5 {
   border-color: transparent;
 }
 
+/* ===================== Dropdown Menu Item =====================  */
+.dropdown-toggle{
+  color: #BDBDBD;
+}
+
+.dropdown-toggle:focus,
+.dropdown-toggle:hover{
+  color: white;
+}
+
+.dropdown-toggle__bkg_color {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show>.btn-secondary.dropdown-toggle,
+.dropdown-toggle__bkg_color:focus,
+.dropdown-toggle__bkg_color:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn.focus,
+.btn:focus,
+.show>.btn-secondary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.dropdown-item:hover,
+.dropdown__link:hover {
+  background-color: transparent;
+}
+/* ===================== Ends Here ===================== */
+
 .brand-moto {
   font-style: normal;
   font-weight: 100;

@@ -73,23 +73,32 @@
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'accounts:profile' %}">
-              <button type="button" class="btn btn-outline-warning">Welcome {{ user.username }}</button>
-            </a>
-          </li>
-          {% if user.is_superuser %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'admin:index' %}">
-              <button type="button" class="btn btn-outline-warning">ADMIN PANEL</button>
-            </a>
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'accounts:logout' %}">
-              <button type="button" class="btn btn-outline-warning">Log Out</button>
-            </a>
-          </li>
+          <div class="btn-group">
+            <button type="button" class="btn dropdown-toggle dropdown-toggle__bkg_color" data-toggle="dropdown"
+              aria-expanded="false">
+              Welcome {{ user.username }}
+            </button>
+            <div class="dropdown-menu dropdown-menu-right bg-dark">
+              <li class="dropdown-item">
+                <a class="dropdown__link" href="{% url 'accounts:profile' %}">Profile
+                </a>
+              </li>
+              <li class="dropdown-item">
+                <a class="dropdown__link" href="{% url 'accounts:profile' %}">Edit Profile
+                </a>
+              </li>
+              {% if user.is_superuser %}
+              <li class="dropdown-item">
+                <a class="dropdown__link" href="{% url 'admin:index' %}">Admin Panel
+                </a>
+              </li>
+              {% endif %}
+              <li class="dropdown-item">
+                <a class="dropdown__link" href="{% url 'accounts:logout' %}">Log out
+                </a>
+              </li>
+            </div>
+          </div>
           {% else %}
           <!-- need to add sign up view and url -->
           <li class="nav-item">
@@ -103,7 +112,7 @@
     </div>
   </nav>
   <!-- navbar ends here -->
-  
+
   <!-- Main content -->
   {% block content %}
   {% endblock %}
@@ -174,9 +183,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-    
+
   <!-- custom js -->
   {% block js %}
   {% endblock %}
 </body>
+
 </html>
