@@ -1,0 +1,18 @@
+{% load static %}
+<section style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+    <!-- user informations -->
+    <div class="card bg-dark text-white mb-3" style="width:85%;border-radius: 10px; ">
+        <div class="card-header">@{{ user.username }}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+            <p class="card-text">{{ user.profile.profile_description }}</p>
+            <p style="margin-top:-10px;">College - {{ user.profile.collage_name }}</p>
+            <p style="margin-top:-10px;">Email - {{ user.email }}</p>
+        </div>
+        <a href="{% url 'accounts:update_profile' %}">
+            <button style="width:150px; margin-top: -25px;margin-left: 20px; margin-bottom: 20px;" type="button" class="btn btn-outline-info">
+                Edit Profile
+            </button>
+        </a>
+    </div>
+</section>

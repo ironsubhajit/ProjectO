@@ -7,149 +7,20 @@
 
 {%block content%}
 <!--Navbar for new/logged-out user-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <div class="container container-fluid">
-        <a class="navbar-brand active" href="{% url 'home' %}">
-            <img src="{% static 'ProjectO/icons/Brand.png' %}" width="30" height="30" alt="Brand logo" loading="lazy"
-                class="rounded mt-n1 mr-1">
-            <span class="brand-name">ProjectHub</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav mx-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">Creative Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Softwear Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Electronics Projects</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav my-2 my-lg-0">
-                {% if user.is_authenticated %}
-                <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle dropdown-toggle__bkg_color" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Welcome {{ user.username }}
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right bg-dark">
-                        <li class="dropdown-item">
-                            <a class="dropdown__link" href="{% url 'accounts:profile' %}">Profile
-                            </a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="dropdown__link" href="{% url 'accounts:profile' %}">Edit Profile
-                            </a>
-                        </li>
-                        {% if user.is_superuser %}
-                        <li class="dropdown-item">
-                            <a class="dropdown__link" href="{% url 'admin:index' %}">Admin Panel
-                            </a>
-                        </li>
-                        {% endif %}
-                        <li class="dropdown-item">
-                            <a class="dropdown__link" href="{% url 'accounts:logout' %}">Log out
-                            </a>
-                        </li>
-                    </div>
-                </div>
-                {% else %}
-                <!-- need to add sign up view and url -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:login' %}">
-                        <button type="button" class="btn btn-outline auth-btn">Sign In</button>
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</nav>
+{% include 'ProjectO/_navbar.html' %}
 <!-- navbar ends here -->
+
 <!-- image header -->
 <section>
     <img src="{% static 'ProjectO/images/slide3.jpeg' %}" style="height:270px; width: 100%;" />
     <img src="{{ user.profile.profile_image.url }}"
         style="height:200px; width:250px; border-radius: 45%; margin-top: -150px; margin-left: 6%;" alt="profile pic" />
 </section>
-<section style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-    <!-- user informations -->
-    <div class="card text-white mb-3" style="width:85%; background-color:#4B5D67;border-radius: 10px; ">
-        <div class="card-header">@{{ user.username }}</div>
-        <div class="card-body">
-            <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
-            <p class="card-text">{{ user.profile.profile_description }}</p>
-            <p style="margin-top:-10px;">College - {{ user.profile.collage_name }}</p>
-            <p style="margin-top:-10px;">Email - {{ user.email }}</p>
-        </div>
-        <button style="width:150px; margin-top: -25px;margin-left: 20px; margin-bottom: 20px;" type="button"
-            class="btn btn-outline-info">Edit Profile</button>
-    </div>
-</section>
 
-<!--footer block-->
-<footer class="footer bg-dark pt-4">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-4 pt-0 footer-about">
-                    <h1 class="brand-name">ProjectHub</h1>
-                    <p class="brand-moto">
-                        The value of an idea lies <br> in the using of it.
-                    </p>
-                </div>
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col footer-column footer-contact">
-                            <h4 class="heading">Explore</h4>
-                            <ul class="footer-nav">
-                                <li class="footer-item"><a class="footer-link" href="#">Creative Projects</a></li>
-                                <li class="footer-item"><a class="footer-link" href="#">Software Projects</a></li>
-                                <li class="footer-item"><a class="footer-link" href="#">Electronics Projects</a></li>
-                            </ul>
-                            <h4 class="heading">New Business</h4>
-                            <ul class="footer-nav">
-                                <li class="footer-item"><a class="footer-link" href="#">projecthub@gmail.com</a></li>
-                            </ul>
-                        </div>
-                        <div class="col footer-column footer-contact">
-                            <h4 class="heading">Follow</h4>
-                            <ul class="footer-nav">
-                                <li class="footer-item"><a class="footer-link" target="_blank"
-                                        href="https://www.linkedin.com/in/ironsubhajit">LinkedIn</a></li>
-                                <li class="footer-item"><a class="footer-link" target="_blank"
-                                        href="https://github.com/ironsubhajit">Github</a></li>
-                                <li class="footer-item"><a class="footer-link" target="_blank"
-                                        href="https://www.instagram.com/ironsubhajit">Instagram</a></li>
-                            </ul>
-                        </div>
-                        <div class="col footer-column">
-                            <h4 class="heading">Legal</h4>
-                            <ul class="footer-nav">
-                                <li class="footer-item"><a class="footer-link" href="#">Terms</a></li>
-                                <li class="footer-item"><a class="footer-link" href="#">Privacy</a></li>
-                            </ul>
-                        </div>
-                    </div>
+<!-- User profile details card -->
+{% include 'accounts/_user_profile_card.html' %}
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 footer-copyright">
-                    <p>&#169; 2020-2021 rights reserved by ProjectHub</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<!-- Footer -->
+{% include 'ProjectO/_footer.html' %}
+
 {%endblock%}
