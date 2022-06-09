@@ -7,6 +7,7 @@ use: font-family: 'Roboto', sans-serif;
 body{
   background-color: #212529;
   font-family: 'Roboto', sans-serif;
+  color: #ffffff;
 }
 .mx-n7 {
   margin-left: -1.8rem !important;
