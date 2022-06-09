@@ -1,0 +1,58 @@
+{% extends 'accounts/_accounts_base.html' %}
+{% load static %}
+
+{%block tittle%}
+<title>{{ user.username }} | Update Profile</title>
+{%endblock%}
+
+<!-- CUSTOM STATIC CSS ADDED -->
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'accounts/css/user_profile.css' %}">
+{% endblock %}
+
+{%block content%}
+{% include 'ProjectO/_navbar.html' %}
+<!-- image header -->
+<section>
+    <img src="{% static 'ProjectO/images/slide5.jpeg' %}" style="height: 20rem; width: 100%; object-fit: cover;" />
+    <img class="" src="{{ user.profile.profile_image.url }}"
+        style="height:200px; width:250px; border-radius: 50%; margin-top: -150px; margin-left: 6%;" alt="profile pic" />
+</section>
+
+<section class="container rounded-lg jumbotron jumbotron-fluid bg-dark mt-4 mb-4" style="display: flex; flex-direction: column;">
+    <form class="mx-5" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row form-group">
+            <div class="col">
+                {{ user_update_form.first_name }}
+            </div>
+            <div class="col">
+                {{ user_update_form.last_name }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ user_update_form.email }}
+        </div>
+
+        <div class="form-group">
+            {{ profile_update_form.profile_description }}
+        </div>
+
+        <div class="form-group">
+            {{ profile_update_form.collage_name }}
+        </div>
+        <div class="form-group row">
+            <div class="col-4 my-3">
+                {{ profile_update_form.profile_image }}
+            </div>
+        </div>
+        <div class="submit_btn text-center">
+            <button type="submit" class="btn btn-lg btn-outline-secondary">Update Profile</button>
+        </div>
+    </form>
+</section>
+
+<!-- Footer -->
+{% include 'ProjectO/_footer.html' %}
+
+{%endblock%}
