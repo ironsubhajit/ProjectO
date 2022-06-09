@@ -18,4 +18,5 @@ urlpatterns = [
          name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('profile/', acc_views.profile, name="profile"),
+    path('update/profile/', acc_views.profile_update, name="update_profile"),
 ]
