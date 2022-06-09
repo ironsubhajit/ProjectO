@@ -5,6 +5,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 
 
+from .models import Profile
+
+
 # new user create form
 class UserCreateForm(UserCreationForm):
     first_name = forms.CharField()
@@ -16,7 +19,7 @@ class UserCreateForm(UserCreationForm):
         model = get_user_model()
 
     def __init__(self, *args, **kwargs):
-        super(UserCreateForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.fields['username'].widget.attrs['class'] = 'form-control bg-white border-left-0 border-md'
         self.fields['username'].widget.attrs['id'] = 'username'
@@ -56,7 +59,6 @@ class UserCreateForm(UserCreationForm):
             raise ValidationError("Email Already Exist!")
         return email
 
-
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
@@ -91,3 +93,54 @@ class UserLoginForm(AuthenticationForm):
         self.fields['password'].widget.attrs['class'] = 'form-control'
         self.fields['password'].widget.attrs['id'] = 'password'
         self.fields['password'].widget.attrs['placeholder'] = 'Password'
+
+
+class UserUpdateForm(forms.ModelForm):
+    """user information update form"""
+
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    email = forms.EmailField()
+
+    class Meta:
+        fields = ("first_name", "last_name", "email")
+        model = get_user_model()
+    
+    def __init__(self, *args, **kwargs):
+        super(UserUpdateForm, self).__init__(*args, **kwargs)
+
+        self.fields['first_name'].widget.attrs['class'] = 'form-control bg-dark text-white site__input_field'
+        self.fields['first_name'].widget.attrs['id'] = 'first_name_input'
+        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
+
+        self.fields['last_name'].widget.attrs['class'] = 'form-control bg-dark text-white site__input_field'
+        self.fields['last_name'].widget.attrs['id'] = 'last_name_input'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
+
+        self.fields['email'].widget.attrs['class'] = 'form-control bg-dark text-white site__input_field'
+        self.fields['email'].widget.attrs['id'] = 'email_input'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email Address'
+        
+
+class ProfileUpdateForm(forms.ModelForm):
+    """Profile update form"""
+    profile_description = forms.CharField(max_length=500)
+    collage_name = forms.CharField(max_length=200)
+
+    class Meta:
+        model = Profile
+        fields = ("profile_image", "profile_description", "collage_name")
+    
+    def __init__(self, *args, **kwargs):
+        super(ProfileUpdateForm, self).__init__(*args, **kwargs)
+
+        self.fields['profile_description'].widget.attrs['class'] = 'form-control bg-dark text-white site__input_field'
+        self.fields['profile_description'].widget.attrs['id'] = 'profile_description_input'
+        self.fields['profile_description'].widget.attrs['placeholder'] = 'Description'
+        
+        self.fields['collage_name'].widget.attrs['class'] = 'form-control bg-dark text-white site__input_field'
+        self.fields['collage_name'].widget.attrs['id'] = 'collage_name_input'
+        self.fields['collage_name'].widget.attrs['placeholder'] = 'Collage Name'
+        
+        self.fields['profile_image'].widget.attrs['class'] = 'form-control-file bg-dark text-white site__input_field'
+        self.fields['profile_image'].widget.attrs['id'] = 'profile_image_input'
