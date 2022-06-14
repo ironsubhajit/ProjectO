@@ -9,6 +9,30 @@ body{
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
 }
+
+.neg_margin_top {
+  margin-top: -3.5%;
+}
+
+.frst-slide {
+  margin-top: -3.3%;
+  height: 50%;
+}
+
+.scnd-slide {
+  margin-top: -1.54%;
+  height: 50%;
+}
+
+.carousel-caption {
+  font-size: 0.78rem;
+}
+
+.carousel_caption_description{
+  font-size: 1.2rem;
+}
+
+
 .mx-n7 {
   margin-left: -1.8rem !important;
 }
