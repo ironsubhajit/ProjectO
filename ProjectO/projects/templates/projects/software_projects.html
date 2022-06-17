@@ -1,0 +1,59 @@
+{% extends "ProjectO/base.html" %} {% load static %}
+
+<!-- css -->
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'ProjectO/css/projecto-master.css' %}" />
+{% endblock %}
+
+<!-- body content -->
+{% block content %}
+<div>
+  {% if not user.is_authenticated %}
+  <!-- if a user not registered or logged-in -->
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Hello User!</strong> Seems like you have not <strong>register</strong> or <strong>log in</strong> yet it may
+    block some features for you!!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+  <section class="container container-fluid projecthub-intro">
+    <div class="introduction">
+      <p class="my-0">Software Projects</p>
+    </div>
+  </section>
+  <section class="container container-fluid top-projects">
+    <!-- Trending profiles section start here -->
+    <div class="mt-4 container project-list">
+      <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
+        {% for post in posts %}
+          <div class="item web-scraping col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://github.com/ironsubhajit/WebScraping/tree/master/Scraping-books" target="_blank" class="item-wrap fancybox">
+              <div class="work-info">
+                  <h3>{{ post.project_name }}</h3>
+                  <span>{{ post.author }}</span>
+              </div>
+              <img class="img-fluid" src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}">
+            </a>
+          </div>
+          {% if forloop.counter == 4 %}
+            <div class="divider_div" style="flex-basis: 100%; height: 0;"></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Trending section end here -->
+  </section>
+</div>
+{% endblock %}
+
+<!-- javascript -->
+{% block js %}
+<script src="{% static 'ProjectO/js/projecto.js' %}"></script>
+{% endblock %}
+
+<!--footer block-->
+{% block footer %}
+
+{% endblock %}
