@@ -20,6 +20,32 @@
 <!-- User profile details card -->
 {% include 'accounts/_user_profile_card.html' %}
 
+<section class="container container-fluid top-projects">
+    <div class="recent-project-grid-header">
+        <p class="container container-fluid text-center text-info header">
+            RECENT PROJECTS
+        </p>
+    </div>
+    <!-- Trending profiles section start here -->
+    <div class="mt-4 container project-list">
+        <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
+            {% for post in user_posts %}
+            <div class="item web-scraping col-sm-6 col-md-4 col-lg-4 mb-4">
+                <a href="https://github.com/ironsubhajit/WebScraping/tree/master/Scraping-books" target="_blank"
+                    class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>{{ post.project_name }}</h3>
+                        <span>{{ post.author }}</span>
+                    </div>
+                    <img class="img-fluid" src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--trending section end here-->
+</section>
+
 <!-- Footer -->
 {% include 'ProjectO/_footer.html' %}
 

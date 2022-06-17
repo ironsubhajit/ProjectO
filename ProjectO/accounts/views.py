@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from . import forms as acc_form
+from projects.models import Post
 
 
 class SignupView(CreateView):
@@ -15,7 +16,12 @@ class SignupView(CreateView):
 @login_required
 def profile(request):
     """user profile page view"""
-    return render(request, 'accounts/user_profile.html')
+    user_posts = Post.objects.filter(author=request.user)
+    print("============================> projects: ", user_posts)
+    context = {
+        'user_posts': user_posts
+    }
+    return render(request, 'accounts/user_profile.html', context=context)
 
 
 @login_required
