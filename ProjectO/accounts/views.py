@@ -17,7 +17,6 @@ class SignupView(CreateView):
 def profile(request):
     """user profile page view"""
     user_posts = Post.objects.filter(author=request.user)
-    print("============================> projects: ", user_posts)
     context = {
         'user_posts': user_posts
     }
@@ -31,23 +30,9 @@ def profile_update(request):
         user_update_form = acc_form.UserUpdateForm(request.POST, instance=request.user)
         profile_update_form = acc_form.ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
 
-        # print(f"user_update_form.is_valid() ========================================> {user_update_form.is_valid()}")
-        # print(f"user_update_form.is_bound() ========================================> {user_update_form.is_bound}")
-        # print(f"user_update_form.errors() ========================================> {user_update_form.errors}")
-
-        print(f"profile_update_form.is_valid() ========================================> {profile_update_form.is_valid()}")
-
         if user_update_form.is_valid() and profile_update_form.is_valid():
-            # print(f"========================================> Inside valid")
-
             user_update_form.save()
-
-            # print(f"========================================> user update validated")
-
             profile_update_form.save()
-
-            # print(f"========================================> profile update validated")
-
             return redirect('accounts:profile')
     else:
         user_update_form = acc_form.UserUpdateForm(instance=request.user)
