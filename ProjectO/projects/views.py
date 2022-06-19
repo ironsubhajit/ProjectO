@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
+
+from django.views.generic import (CreateView, DetailView)
 
 from .models import Post
+from .forms import PostForm
 
 
 def creative_projects(request):
@@ -31,3 +37,25 @@ def software_projects(request):
     }
 
     return render(request, 'projects/software_projects.html', context=context)
+
+
+class PostDetailView(DetailView):
+    model = Post
+
+
+class AddProjectView(LoginRequiredMixin, CreateView):
+    login_url = '/accounts/login'
+    redirect_field_name = '/accounts/profile/'
+
+    form_class = PostForm
+    model = Post
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(AddProjectView, self).dispatch(*args, **kwargs)
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+        obj.save()
+        return HttpResponseRedirect(self.redirect_field_name)

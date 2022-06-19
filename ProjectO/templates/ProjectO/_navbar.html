@@ -40,6 +40,10 @@
                             <a class="dropdown__link" href="{% url 'accounts:update_profile' %}">Edit Profile
                             </a>
                         </li>
+                        <li class="dropdown-item">
+                            <a class="dropdown__link" href="{% url 'projects:add_new_project' %}">Add Project
+                            </a>
+                        </li>
                         {% if user.is_superuser %}
                         <li class="dropdown-item">
                             <a class="dropdown__link" href="{% url 'admin:index' %}">Admin Panel

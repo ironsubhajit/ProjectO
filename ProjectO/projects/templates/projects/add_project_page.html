@@ -1,0 +1,35 @@
+{% extends "projects/_projects_base_template.html" %} {% load static %}
+{% load crispy_forms_tags %}
+
+
+<!-- css -->
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'ProjectO/css/projecto-master.css' %}" />
+<link rel="stylesheet" href="{% static 'projects/css/add_new_project_form.css' %}" />
+{% endblock %}
+
+<!-- body content -->
+{% block content %}
+<div>
+  <section class="container container-fluid projecthub-intro">
+    <div class="introduction">
+      <p class="my-0">{{ "add new project"|title }}</p>
+    </div>
+  </section>
+</div>
+<div class="card_form" style="display: flex; align-items: center;">
+  <form class="mx-auto my-auto w-50" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card rounded-lg text-white bg-dark w-100 form-group pt-5 pb-5">
+      <div class="card-body">
+        <legend class="border-bottom mb-4 card-title">{{ "new project"|title }}</legend>
+        {{ form|crispy }}
+      </div>
+      <div class="btn">
+        <button type="submit" class="btn btn-lg btn-outline-success">Add Project</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
