@@ -49,6 +49,15 @@
   <!--Navbar for new/logged-out user-->
   {% include 'ProjectO/_navbar.html' %}
   <!-- navbar ends here -->
+  {% if not user.is_authenticated %}
+  <!-- if a user not registered or logged-in -->
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Hello User!</strong> Seems like you have not <strong>register</strong> or <strong>log in</strong>!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
 
   <!-- Main content -->
   {% block content %}
