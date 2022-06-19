@@ -36,8 +36,8 @@
                             <a href="#" class="btn btn-md btn-outline-info">View</a>
                         </div>
                         <div class="card-footer" style="border-color: #c1f6df;">
-                            <small class="" style="color: rgb(198, 191, 191);">Last updated 3 mins ago by {{
-                                post.author|title }}</small>
+                            <small class="" style="color: rgb(198, 191, 191);">Last updated {{ post.modified_date|date:"F d, Y" }} by
+                                {{ post.author|title }}</small>
                         </div>
                     </div>
                 </div>
@@ -66,8 +66,8 @@
                             <a href="#" class="btn btn-md btn-outline-info">View</a>
                         </div>
                         <div class="card-footer" style="border-color: #c1f6df;">
-                            <small class="" style="color: rgb(198, 191, 191);">Last updated 3 mins ago by {{
-                                post.author|title }}</small>
+                            <small class="" style="color: rgb(198, 191, 191);">Last updated {{ post.modified_date|date:"F d, Y" }} by
+                                {{ post.author|title }}</small>
                         </div>
                     </div>
                 </div>

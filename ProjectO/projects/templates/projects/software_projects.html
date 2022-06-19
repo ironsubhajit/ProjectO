@@ -28,15 +28,15 @@
                 <span class="badge badge-pill badge-light">{{ post.project_type|title }}</span>
                 {% endif %}
               </p>
-              <h5 class="card-title">{{ post.project_name|title }}</h5>
+              <h5 class="card-title">{{ post.project_name|title }}</small></h5>
               <p class="card-text">{{ post.project_requirement|title }}</p>
             </div>
             <div class="card-body text-center">
               <a href="#" class="btn btn-md btn-outline-info">View</a>
             </div>
             <div class="card-footer" style="border-color: #c1f6df;">
-              <small class="" style="color: rgb(198, 191, 191);">Last updated 3 mins ago by {{ post.author|title
-                }}</small>
+              <small class="" style="color: rgb(198, 191, 191);">Last updated {{ post.modified_date|date:"F d, Y" }} by
+                {{ post.author|title }}</small>
             </div>
           </div>
         </div>
