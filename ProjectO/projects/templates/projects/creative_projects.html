@@ -1,0 +1,80 @@
+{% extends "projects/_projects_base_template.html" %} {% load static %}
+
+<!-- body content -->
+{% block content %}
+<div>
+    <section class="container container-fluid projecthub-intro">
+        <div class="introduction">
+            <p class="my-0">Creative Projects</p>
+        </div>
+    </section>
+    <section class="container container-fluid top-projects">
+        <!-- Trending profiles section start here -->
+        <div class="mt-4 container project-list">
+            <div id="portfolio-grid" class="row no-gutter">
+                {% for post in posts %}
+                <div class="item col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <div class="card text-white bg-dark h-100">
+                        <img src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}" class="card-img-top"
+                            alt="Project image">
+                        <div class="card-body ">
+                            <p class="card-text">
+                                {% if post.project_type == 'creative' %}
+                                <span class="badge badge-pill badge-success">{{ post.project_type|title }}</span>
+                                {% elif post.project_type == 'software' %}
+                                <span class="badge badge-pill badge-info">{{ post.project_type|title }}</span>
+                                {% elif post.project_type == 'electronics' %}
+                                <span class="badge badge-pill badge-primary">{{ post.project_type|title }}</span>
+                                {% elif post.project_type == 'other' %}
+                                <span class="badge badge-pill badge-light">{{ post.project_type|title }}</span>
+                                {% endif %}
+                            </p>
+                            <h5 class="card-title">{{ post.project_name|title }}</h5>
+                            <p class="card-text">{{ post.project_requirement|title }}</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="#" class="btn btn-md btn-outline-info">View</a>
+                        </div>
+                        <div class="card-footer" style="border-color: #c1f6df;">
+                            <small class="" style="color: rgb(198, 191, 191);">Last updated 3 mins ago by {{
+                                post.author|title }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for post in other_posts %}
+                <div class="item col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <div class="card text-white bg-dark h-100">
+                        <img src="{% static 'ProjectO/images/TrendProjectPic.jpg' %}" class="card-img-top"
+                            alt="Project image">
+                        <div class="card-body ">
+                            <p class="card-text">
+                                {% if post.project_type == 'creative' %}
+                                <span class="badge badge-pill badge-success">{{ post.project_type|title }}</span>
+                                {% elif post.project_type == 'software' %}
+                                <span class="badge badge-pill badge-info">{{ post.project_type|title }}</span>
+                                {% elif post.project_type == 'electronics' %}
+                                <span class="badge badge-pill badge-primary">{{ post.project_type|title }}</span>
+                                {% elif post.project_type == 'other' %}
+                                <span class="badge badge-pill badge-light">{{ post.project_type|title }}</span>
+                                {% endif %}
+                            </p>
+                            <h5 class="card-title">{{ post.project_name|title }}</h5>
+                            <p class="card-text">{{ post.project_requirement|title }}</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="#" class="btn btn-md btn-outline-info">View</a>
+                        </div>
+                        <div class="card-footer" style="border-color: #c1f6df;">
+                            <small class="" style="color: rgb(198, 191, 191);">Last updated 3 mins ago by {{
+                                post.author|title }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
